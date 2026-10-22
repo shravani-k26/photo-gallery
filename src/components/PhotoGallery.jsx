@@ -1,8 +1,8 @@
-
 import Header from './Header'
 import Footer from './Footer'
 import PhotoCard from './PhotoCard'
 import './PhotoGallery.css'
+import { useState, useCallback, useMemo } from 'react'
 
 const samplePhotos = [
   {
@@ -48,7 +48,17 @@ const samplePhotos = [
 ]
 
 function PhotoGallery() {
-  return (
+    const [searchQuery, setSearchQuery] = useState('')
+    const handleSearchChange = useCallback((event) => {
+        setSearchQuery(event.target.value)
+    }, [])
+    const filteredPhotos = useMemo(() => {
+        const query = searchQuery.trim().toLowerCase()
+        return samplePhotos.filter((photo) =>
+            photo.author.toLowerCase().includes(query)
+        )
+    }, [searchQuery])  
+    return (
     <div className="gallery">
       <Header />
 
@@ -72,6 +82,8 @@ function PhotoGallery() {
             <input
               type="search"
               placeholder="Search photos by author..."
+              value={searchQuery}
+              onChange={handleSearchChange}
               aria-label="Search photos by author"
             />
           </label>
@@ -85,14 +97,18 @@ function PhotoGallery() {
             </div>
 
             <span className="gallery-count">
-              {samplePhotos.length} photos
+              {filteredPhotos.length} photos
             </span>
           </div>
 
           <div className="gallery-grid">
-            {samplePhotos.map((photo) => (
-              <PhotoCard key={photo.id} photo={photo} />
-            ))}
+            {filteredPhotos.length > 0 ? (
+                filteredPhotos.map((photo) => (
+                <PhotoCard key={photo.id} photo={photo} />
+             ))
+            ) : (
+            <p>No photographers found. Try another name.</p>
+            )}
           </div>
         </section>
       </main>
