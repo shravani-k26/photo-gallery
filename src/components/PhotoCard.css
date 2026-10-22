@@ -1,0 +1,34 @@
+@reference "../index.css";
+
+
+.photo-card {
+  @apply overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition duration-300;
+}
+
+.photo-card:hover {
+  @apply -translate-y-1 shadow-xl shadow-slate-200/70;
+}
+
+.photo-card-image {
+  @apply block h-56 w-full bg-slate-100 object-cover transition duration-500;
+}
+
+.photo-card:hover .photo-card-image {
+  @apply scale-[1.03];
+}
+
+.photo-card-details {
+  @apply flex items-center justify-between gap-3 px-4 py-4;
+}
+
+.photo-card-author {
+  @apply truncate text-sm font-semibold text-slate-800;
+}
+
+.photo-card-favorite {
+  @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-2xl text-slate-500 transition;
+}
+
+.photo-card-favorite:hover {
+  @apply border-rose-200 bg-rose-50 text-rose-500;
+}

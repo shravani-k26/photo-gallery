@@ -1,0 +1,93 @@
+@reference "../index.css";
+
+.gallery {
+  @apply min-h-screen bg-[#f8f8fc] text-slate-900;
+}
+
+.gallery-nav {
+  @apply flex items-center justify-between border-b border-slate-200/70 bg-white/90 px-5 py-4 sm:px-10 lg:px-16;
+}
+
+.gallery-brand {
+  @apply flex items-center gap-3 text-xl font-extrabold tracking-tight text-slate-900 no-underline sm:text-2xl;
+}
+
+.gallery-brand-icon {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-lg text-white shadow-md;
+}
+
+.gallery-brand-accent {
+  @apply text-indigo-600;
+}
+
+.gallery-nav-label {
+  @apply hidden text-sm font-medium text-slate-500 sm:block;
+}
+
+.gallery-hero {
+  @apply px-5 pb-12 pt-14 text-center sm:px-10 sm:pb-16 sm:pt-20;
+  background:
+    radial-gradient(ellipse at top left, #e0eaff 0%, transparent 48%),
+    radial-gradient(ellipse at top right, #f0e7ff 0%, transparent 48%),
+    #fbfbff;
+}
+
+.gallery-eyebrow {
+  @apply inline-block rounded-full border border-indigo-100 bg-white/80 px-4 py-2 text-xs font-bold tracking-[0.16em] text-indigo-600;
+}
+
+.gallery-title {
+  @apply mx-auto mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl;
+}
+
+.gallery-title span {
+  @apply text-indigo-600;
+}
+
+.gallery-subtitle {
+  @apply mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-500 sm:text-lg;
+}
+
+.gallery-search {
+  @apply mx-auto mt-8 flex max-w-2xl items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-lg shadow-indigo-100/50 transition;
+}
+
+.gallery-search:focus-within {
+  @apply border-indigo-400 ring-4 ring-indigo-100;
+}
+
+.gallery-search > span {
+  @apply text-2xl text-slate-400;
+}
+
+.gallery-search input {
+  @apply min-w-0 flex-1 border-0 bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400 sm:text-base;
+}
+
+.gallery-content {
+  @apply mx-auto max-w-[1600px] px-5 pb-12 sm:px-10 lg:px-16;
+}
+
+.gallery-section-heading {
+  @apply mb-7 flex flex-wrap items-center justify-between gap-4;
+}
+
+.gallery-section-heading h2 {
+  @apply text-xl font-bold tracking-tight text-slate-900 sm:text-2xl;
+}
+
+.gallery-section-heading p {
+  @apply mt-1 text-sm text-slate-500;
+}
+
+.gallery-count {
+  @apply rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600;
+}
+
+.gallery-grid {
+  @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.gallery-footer {
+  @apply border-t border-slate-200 bg-white px-5 py-6 text-center text-sm text-slate-500;
+}
