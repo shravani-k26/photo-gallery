@@ -1,11 +1,11 @@
 import './PhotoCard.css'
 
-function PhotoCard({ photo }) {
+function PhotoCard({ photo, isFavorite, onToggleFavorite }) {
   return (
     <article className="photo-card">
       <img
         className="photo-card-image"
-        src={photo.downloadUrl}
+        src={photo.download_url}
         alt={`Photo by ${photo.author}`}
       />
 
@@ -13,14 +13,23 @@ function PhotoCard({ photo }) {
         <p className="photo-card-author">{photo.author}</p>
 
         <button
-          className="photo-card-favorite"
+          className={`photo-card-favorite ${
+            isFavorite ? 'is-favorite' : ''
+          }`}
           type="button"
-          aria-label={`Add photo by ${photo.author} to favourites`}
+          onClick={() => onToggleFavorite(photo.id)}
+          aria-label={
+            isFavorite
+              ? `Remove photo by ${photo.author} from favourites`
+              : `Add photo by ${photo.author} to favourites`
+          }
+          aria-pressed={isFavorite}
         >
-            &#9825;
+          {isFavorite ? <span>&#9829;</span> : <span>&#9825;</span>}
         </button>
       </div>
     </article>
   )
 }
+
 export default PhotoCard

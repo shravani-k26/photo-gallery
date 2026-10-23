@@ -32,3 +32,7 @@
 .photo-card-favorite:hover {
   @apply border-rose-200 bg-rose-50 text-rose-500;
 }
+
+.photo-card-favorite.is-favorite {
+  @apply border-rose-200 bg-rose-50 text-rose-600;
+}
